@@ -10,7 +10,7 @@ no* cria_lista(){
     return NULL;
 }
 
-no*add_circular(int val,no*lista){
+no*add_circular(no*lista, int val){
     no*n=cria_no(val);
     if(lista==NULL){
         n->next=n;
@@ -18,5 +18,23 @@ no*add_circular(int val,no*lista){
     }
     n->next=lista->next;
     lista->next=n;
-    return;
+    return lista;
+}
+
+no* remove_circular(no*lista, no*n){
+    if(lista==NULL || n==NULL) return lista;
+    if(n->next==n){
+        free(n);
+        return NULL;
+    }
+    no* ant= n;
+    while(ant->next!=n){
+        ant=ant->next;
+    }
+    if(lista==n){ // se for a cabeça precia arrumar para nao perder a referencia
+        lista=ant;
+    }
+    ant->next=n->next;
+    free(n);
+    return lista;
 }
