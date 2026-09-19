@@ -38,3 +38,11 @@ no* remove_circular(no*lista, no*n){
     free(n);
     return lista;
 }
+
+void imprime_circular(no*lista){
+    no*atual=lista->next;
+    do{
+        printf("%d\n", atual->val);
+        atual=atual->next;
+    }while(atual!=lista->next);
+}

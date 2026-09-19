@@ -14,3 +14,5 @@ no* cria_lista();
 no*add_circular(no*lista,int val);
 
 no*remove_circular(no*lista,no*n);
+
+void imprime_circular(no*lista);
