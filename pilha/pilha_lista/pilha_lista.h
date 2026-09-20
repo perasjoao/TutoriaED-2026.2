@@ -17,6 +17,8 @@ void destroi_pilha(pilha**s_ref);
 
 void empilhar(pilha*s, int val);
 
+int pilha_eh_vazia(pilha*p);
+
 int peek(pilha*s);
 
 int desempilhar(pilha*s);

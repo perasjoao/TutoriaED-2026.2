@@ -19,6 +19,10 @@ pilha* cria_pilha(){
     return s;
 }
 
+int pilha_eh_vazia(pilha*p){
+    return p->topo==NULL;
+}
+
 void destroi_pilha(pilha**s_ref){
     pilha*s=*s_ref;
     no*p=s->topo;

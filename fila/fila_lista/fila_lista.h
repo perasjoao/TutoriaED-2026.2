@@ -16,6 +16,8 @@ fila*cria_fila();
 
 void destruir_fila(fila*f);
 
+fila_eh_vazia(fila*f);
+
 void enfileira(fila*f,int val);
 
 int desenfileira(fila*f,int val);

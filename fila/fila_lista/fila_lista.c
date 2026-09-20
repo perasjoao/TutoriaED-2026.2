@@ -1,21 +1,14 @@
 #include "fila_lista.h";
 
-typedef struct no{
-    struct no*next;
-    int val;
-}no;
-
-typedef struct{
-    no*inicio;
-    no*fim;
-}fila;
-
 no*cria_no(int val){
     no*n=calloc(1,sizeof(no));
     n->val=val;
     return n;
 }
 
+int fila_eh_vazia(fila*f){
+    return f->inicio==NULL;
+}
 
 void enfileira(fila*f,int val){
     no*n=cria_no(val);
