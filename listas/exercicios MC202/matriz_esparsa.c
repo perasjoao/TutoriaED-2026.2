@@ -1,32 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node{
+typedef struct no{
     int val;
     int linha,coluna;
-    struct node* next;
-    struct node*prev;
-}node;
+    struct no* next;
+    struct no*prev;
+}no;
 
 typedef struct matriz{
-    node*dummie_linha;
-    node*dummie_coluna;
+    no*dummie_linha;
+    no*dummie_coluna;
 }matriz;
 
-node*create_dummie_linha(){
-    node*dummie=calloc(1,sizeof(node));
+no*create_dummie_linha(){
+    no*dummie=calloc(1,sizeof(no));
     dummie->linha=-1;
     return dummie;
 }
 
-node*create_dummie_coluna(){
-    node*dummie=calloc(1,sizeof(node));
+no*create_dummie_coluna(){
+    no*dummie=calloc(1,sizeof(no));
     dummie->coluna=-1;
     return dummie;
 }
 
-node*create_node(int linha, int coluna, int val){
-    node*elemento=calloc(1,sizeof(node));
+no*create_node(int linha, int coluna, int val){
+    no*elemento=calloc(1,sizeof(no));
     elemento->coluna=coluna;
     elemento->linha=linha;
     elemento->val=val;
@@ -38,8 +38,8 @@ matriz*create_matriz(int linhas, int colunas){
 
     m->dummie_linha=create_dummie_linha();
     m->dummie_coluna=create_dummie_coluna();
-    node*aux_linha=m->dummie_linha;
-    node*aux_coluna=m->dummie_coluna;
+    no*aux_linha=m->dummie_linha;
+    no*aux_coluna=m->dummie_coluna;
         while(linhas>1){
             aux_linha->next=create_dummie_linha();
             aux_linha=aux_linha->next;
@@ -56,12 +56,12 @@ matriz*create_matriz(int linhas, int colunas){
 
 
 
-void add_elemento(node**dummie_linha_ref, node**dummie_coluna_ref,int val,int coluna, int linha){
-    node*dummie_linha=*dummie_linha_ref;
-    node*dummie_coluna=*dummie_coluna_ref;
+void add_elemento(no**dummie_linha_ref, no**dummie_coluna_ref,int val,int coluna, int linha){
+    no*dummie_linha=*dummie_linha_ref;
+    no*dummie_coluna=*dummie_coluna_ref;
 
 
-    node*elemento=create_node(linha,coluna,val);
+    no*elemento=create_node(linha,coluna,val);
 
             elemento->next=dummie_linha->prev;
             dummie_linha->prev=elemento;
@@ -70,8 +70,8 @@ void add_elemento(node**dummie_linha_ref, node**dummie_coluna_ref,int val,int co
 }
 
 int acessa_elemento(matriz*m,int linha, int coluna){
-    node*dummie_linha=m->dummie_linha;
-    node*dummie_coluna=m->dummie_coluna;
+    no*dummie_linha=m->dummie_linha;
+    no*dummie_coluna=m->dummie_coluna;
         while(linha>0){
             dummie_linha=dummie_linha->next;
             linha--;
